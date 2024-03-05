@@ -1,0 +1,17 @@
+[test-server]
+#private IP address
+#172.31.70.178 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/DevOps-E1.pem
+172.31.70.178 ansible_user=ubuntu
+
+#public IP address
+#3.239.75.205
+
+
+
+[prod-server]
+#private IP address
+#172.31.79.20 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/DevOps-E1.pem
+172.31.79.20 ansible_user=ubuntu
+
+#public IP address
+#3.238.230.245
