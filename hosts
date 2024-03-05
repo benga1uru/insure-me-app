@@ -15,3 +15,4 @@
 
 #public IP address
 #3.238.230.245
+#ansible localhost -m ansible.builtin.copy -a "src=hosts dest=/etc/ansible"
