@@ -14,7 +14,9 @@
     command: systemctl start docker
 
   - name: install maven
-    command: apt install maven
+    apt:
+      pkg: maven
+      state: present
 
   - name: deploy insure-me-app
     command: docker system prune -a
