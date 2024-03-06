@@ -21,7 +21,6 @@
   - name: clean up docker containers and images
     command: docker stop $(docker ps -a -q)
     command: docker rm $(docker ps -a -q)
-    command: docker prune -a
 
   - name: deploy insure-me-app
     command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0 
