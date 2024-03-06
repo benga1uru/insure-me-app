@@ -19,15 +19,10 @@
     apt:
       pkg: maven
       state: present
-
+ 
   - name: stop the containers
     community.docker.docker_container:
-      name: bengaluru/insure-me
-      state: stopped
-  
-  - name: stop the containers
-    community.docker.docker_container:
-      name: bengaluru/insure-me
+      name: bengaluru/insure-me:latest
       state: absent
   
   - name: deploy insure-me-app
