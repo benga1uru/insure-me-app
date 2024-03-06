@@ -28,4 +28,5 @@
     command: git clone https://github.com/benga1uru/selenium-insure-me.git
 
   - name: mvn package
+    command: cd selenium-insure-me
     command: mvn clean package 'assembly:single'
