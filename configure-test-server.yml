@@ -13,8 +13,9 @@
   - name: start docker service
     command: systemctl start docker
 
+  - name: install maven
+    command: apt install maven
+
   - name: deploy insure-me-app
-    command: docker stop $(docker ps -aq)
-    command: docker rm $(docker ps -aq)
-    command: docker rmi $(docker ps -aq)
+    command: docker system prune -a
     command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0 
