@@ -9,6 +9,7 @@
 
   - name: install docker
     command: apt install -y docker.io
+    command: apt install python3-docker
 
   - name: start docker service
     command: systemctl start docker
