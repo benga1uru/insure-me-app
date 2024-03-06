@@ -19,10 +19,6 @@
     apt:
       pkg: maven
       state: present
-  
-  - name: Get information about Docker containers
-    community.docker.docker_info:
-      register: docker_containers
         
   - name: Stop all running Docker containers
     docker_container:
