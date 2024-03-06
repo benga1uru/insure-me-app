@@ -19,16 +19,6 @@
     apt:
       pkg: maven
       state: present
-        
-  - name: Get information about Docker containers
-    community.docker.docker_info:
-      register: docker_containers
-        
-  - name: Stop all running Docker containers
-    docker_container:
-      state: stopped
-      name: "{{ item }}"
-    loop: "{{ docker_containers.containers | map(attribute='Names') | list }}"
-  
+      
   - name: deploy insure-me-app
     command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0
