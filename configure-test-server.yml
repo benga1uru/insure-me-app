@@ -10,15 +10,17 @@
     command: apt install python3-docker -y
 
   - name: install docker
-    command: apt install -y docker.io
+    apt:
+        pkg: docker.io
+        state: present
     
   - name: start docker service
     command: systemctl start docker
 
   - name: install maven
     apt:
-      pkg: maven
-      state: present
+        pkg: maven
+        state: present
       
   #- name: deploy insure-me-app
   #  command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0
@@ -30,11 +32,16 @@
         ports:
             - "8085:8081"
 
-  - name: git checkout
+  - name: Delete folder if present
     file:
       path: "/home/ubuntu/selenium-insure-me"
       state: absent
+      
+  - name: git checkout
     command: git clone https://github.com/benga1uru/selenium-insure-me.git
 
   - name: mvn package
     command: chdir=/home/ubuntu/selenium-insure-me mvn clean package 'assembly:single'
+    
+  - name: Run selenium scripts
+    command: chdir=/home/ubuntu/selenium-insure-me/target/ java -jar insureme-1-jar-with-dependencies.jar
