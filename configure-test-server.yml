@@ -21,9 +21,7 @@
       state: present
  
   - name: stop the containers
-    community.docker.docker_container:
-      name: bengaluru/insure-me:latest
-      state: absent
+    command: docker stop $(docker ps -a -q)
   
   - name: deploy insure-me-app
     command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0
