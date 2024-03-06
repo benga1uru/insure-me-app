@@ -22,3 +22,9 @@
       
   - name: deploy insure-me-app
     command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0
+
+  - name: git checkout
+    command: git pull https://github.com/benga1uru/selenium-insure-me.git
+
+  - name: mvn package
+    command: mvn clean package 'assembly:single'
