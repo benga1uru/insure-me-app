@@ -31,7 +31,9 @@
             - "8085:8081"
 
   - name: git checkout
-    command: rm -r selenium-insure-me
+    file:
+      path: "/home/ubuntu/selenium-insure-me"
+      state: absent
     command: git clone https://github.com/benga1uru/selenium-insure-me.git
 
   - name: mvn package
