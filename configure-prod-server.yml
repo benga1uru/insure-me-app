@@ -1,17 +1,38 @@
 ---
-- name: configure-prod-server
+- name: configure test server
   hosts: prod-server
   become: true
 
   tasks:
-  - name: update repo
+  - name: update repositories
     command: apt update
 
-  - name: install docker
+  - name: install docker engine
     command: apt install -y docker.io
 
   - name: start docker service
     command: systemctl start docker
 
-  - name: deploy insure-me-app
-    command: docker run -itd -p 8085:8081 bengaluru/insure-me:1.0 
+  #- name: deploy insure-me-app
+  #  command: docker run -itd -p 8085:8081 bengaluru/insure-me-app:1.0 
+  
+  - name: Stop insure-me container if running
+    docker_container:
+        name: insure-me
+        image: "bengaluru/insure-me:1.0"
+        state: stopped
+
+  - name: remove insure-me container if present
+    docker_container:
+        name: insure-me
+        image: "bengaluru/insure-me:1.0"
+        state: absent
+    
+  - name: Run the container
+    docker_container:
+        name: insure-me
+        image: "bengaluru/insure-me:1.0"
+        state: started
+        ports:
+            - "8085:8081"
+  
