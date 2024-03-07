@@ -1,5 +1,5 @@
 ---
-- name: configure test server
+- name: configure-prod-server
   hosts: prod-server
   become: true
 
