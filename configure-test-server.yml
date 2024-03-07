@@ -24,11 +24,13 @@
   - name: Stop insure-me container if running
     docker_container:
       name: insure-me
+      image: "bengaluru/insure-me:1.0"
       state: stopped
 
   - name: remove insure-me container if present
     docker_container:
       name: insure-me
+      image: "bengaluru/insure-me:1.0"
       state: absent
     
   - name: Run the container
