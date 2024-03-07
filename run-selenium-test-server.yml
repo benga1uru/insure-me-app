@@ -14,6 +14,6 @@
     
   - name: run selenium scripts -headless
     become: false
-    #command: chdir=/home/ubuntu/selenium-insure-me/target java -jar insureme-1-jar-with-dependencies.jar
     command: echo 'Scripted Executing'
+    command: chdir=/home/ubuntu/selenium-insure-me/target java -jar insureme-1-jar-with-dependencies.jar
     command: echo 'Scripts completed successfully'
