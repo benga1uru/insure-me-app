@@ -1,0 +1,16 @@
+---
+- name: run-selenium-test-server
+  hosts: test1-server
+  become: true
+
+  tasks:
+  - name: update repo
+    command: apt update
+    
+  - name: copy .jar file to test-server
+    ansible.builtin.copy:
+        src: /var/lib/jenkins/workspace/insure-me-pipeline-2/target/insureme-1-jar-with-dependencies.jar
+        dest: /home/ubuntu/insureme-1-jar-with-dependencies.jar
+    
+  - name: run selenium scripts -headless
+    command: chdir=/home/ubuntu java -jar insureme-1-jar-with-dependencies.jar
