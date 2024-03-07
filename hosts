@@ -6,6 +6,8 @@
 #public IP address
 #34.239.172.123
 
+[test1-server]
+172.31.16.231 ansible_user=ubuntu
 
 [prod-server]
 #private IP address
