@@ -32,16 +32,17 @@
         ports:
             - "8085:8081"
 
-  - name: Delete folder if present
-    file:
-      path: "/home/ubuntu/selenium-insure-me"
-      state: absent
-      
-  - name: git checkout
-    command: git clone https://github.com/benga1uru/selenium-insure-me.git
-
-  - name: mvn package
-    command: chdir=/home/ubuntu/selenium-insure-me mvn clean package 'assembly:single'
-    
-  - name: Run selenium scripts
-    command: chdir=/home/ubuntu/selenium-insure-me/target/ java -jar insureme-1-jar-with-dependencies.jar
+#
+#  - name: Delete folder if present
+#    file:
+#      path: "/home/ubuntu/selenium-insure-me"
+#      state: absent
+#      
+#  - name: git checkout
+#    command: git clone https://github.com/benga1uru/selenium-insure-me.git
+#
+#  - name: mvn package
+#    command: chdir=/home/ubuntu/selenium-insure-me mvn clean package 'assembly:single'
+#    
+#  - name: Run selenium scripts
+#    command: chdir=/home/ubuntu/selenium-insure-me/target/ java -jar insureme-1-jar-with-dependencies.jar
