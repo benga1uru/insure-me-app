@@ -6,6 +6,8 @@
   tasks:
   - name: update repositories
     command: apt update
+    command: apt install python3-ppip -y
+    command: apt install python3-docker -y
 
   - name: install docker engine
     command: apt install -y docker.io
