@@ -14,4 +14,4 @@
     
   - name: run selenium scripts -headless
     become: false
-    command: chdir=/home/ubuntu/selenium-insure-me/target 'java -jar insureme-1-jar-with-dependencies.jar'
+    command: chdir=/home/ubuntu/selenium-insure-me/target java -jar insureme-1-jar-with-dependencies.jar
