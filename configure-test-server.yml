@@ -37,7 +37,6 @@
     docker_container:
         name: insure-me
         image: "bengaluru/insure-me:1.0"
-        started: yes
-        restart: yes
+        state: started
         ports:
             - "8085:8081"
